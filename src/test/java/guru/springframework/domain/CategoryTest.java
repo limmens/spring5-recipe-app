@@ -8,6 +8,8 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by jt on 6/17/17.
  */
+import static org.junit.Assert.*;
+
 public class CategoryTest {
 
     Category category;
@@ -17,12 +19,9 @@ public class CategoryTest {
         category = new Category();
     }
 
-    @Test
-    public void getId() throws Exception {
+    public void getId() throws Exception{
         Long idValue = 4L;
-
         category.setId(idValue);
-
         assertEquals(idValue, category.getId());
     }
 
@@ -33,5 +32,4 @@ public class CategoryTest {
     @Test
     public void getRecipes() throws Exception {
     }
-
 }
