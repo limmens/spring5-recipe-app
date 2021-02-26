@@ -19,11 +19,6 @@ import static org.mockito.Mockito.*;
 /**
  * Created by jt on 6/17/17.
  */
-=======
-import java.util.Set;
-
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
 
 public class RecipeServiceImplTest {
 
@@ -56,8 +51,6 @@ public class RecipeServiceImplTest {
 
     @Test
     public void getRecipesTest() throws Exception {
-
-    public void getRecipes() {
         Recipe recipe = new Recipe();
         HashSet recipesData = new HashSet();
         recipesData.add(recipe);
@@ -69,13 +62,5 @@ public class RecipeServiceImplTest {
         assertEquals(recipes.size(), 1);
         verify(recipeRepository, times(1)).findAll();
         verify(recipeRepository, never()).findById(anyLong());
-    }
-
-        when(recipeRepository.findAll()).thenReturn(recipesData);
-
-        Set<Recipe> recipes = recipeService.getRecipes();
-
-        assertEquals(1, recipes.size());
-        verify(recipeRepository, times(1)).findAll();
     }
 }

@@ -33,9 +33,6 @@ public class UnitOfMeasureRepositoryIT {
 
     @Test
     public void findByDescription() throws Exception {
-
-    @DirtiesContext
-    public void findByDescription() {
         Optional<UnitOfMeasure> uomOptional = unitOfMeasureRepository.findByDescription("Teaspoon");
 
         assertEquals("Teaspoon", uomOptional.get().getDescription());
@@ -43,8 +40,6 @@ public class UnitOfMeasureRepositoryIT {
 
     @Test
     public void findByDescriptionCup() throws Exception {
-
-    public void findByDescriptionCup() {
         Optional<UnitOfMeasure> uomOptional = unitOfMeasureRepository.findByDescription("Cup");
 
         assertEquals("Cup", uomOptional.get().getDescription());
