@@ -1,6 +1,5 @@
 package guru.springframework.services;
 
-
 import guru.springframework.domain.Recipe;
 import guru.springframework.repositories.RecipeRepository;
 import org.junit.Before;
@@ -9,6 +8,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.util.HashSet;
+
 import java.util.Optional;
 import java.util.Set;
 
@@ -19,13 +19,18 @@ import static org.mockito.Mockito.*;
 /**
  * Created by jt on 6/17/17.
  */
+=======
+import java.util.Set;
+
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+
 public class RecipeServiceImplTest {
 
     RecipeServiceImpl recipeService;
 
     @Mock
     RecipeRepository recipeRepository;
-
 
     @Before
     public void setUp() throws Exception {
@@ -52,6 +57,7 @@ public class RecipeServiceImplTest {
     @Test
     public void getRecipesTest() throws Exception {
 
+    public void getRecipes() {
         Recipe recipe = new Recipe();
         HashSet recipesData = new HashSet();
         recipesData.add(recipe);
@@ -65,4 +71,11 @@ public class RecipeServiceImplTest {
         verify(recipeRepository, never()).findById(anyLong());
     }
 
+        when(recipeRepository.findAll()).thenReturn(recipesData);
+
+        Set<Recipe> recipes = recipeService.getRecipes();
+
+        assertEquals(1, recipes.size());
+        verify(recipeRepository, times(1)).findAll();
+    }
 }
